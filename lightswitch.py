@@ -16,7 +16,7 @@ try:
   while True:
     input_state = GPIO.input(BUTTON)
     if input_state == False:
-      print("Button pushed!")
+      print("Buttoned!")
       GPIO.output(RED_LED, red)
       GPIO.output(YELLOW_LED, yellow)
       red = not red
