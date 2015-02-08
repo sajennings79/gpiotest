@@ -19,10 +19,8 @@ try:
       print("Buttoned!")
       GPIO.output(RED_LED, red)
       GPIO.output(YELLOW_LED, yellow)
-      red = not red
-      yellow = not yellow
-      print(red)
-      print(yellow)
+      red, yellow = yellow, red
+      print("Red LED is now {}, yellow LED is now {}.".format(red, yellow))
       time.sleep(0.2)
 except KeyboardInterrupt:
   GPIO.cleanup()
