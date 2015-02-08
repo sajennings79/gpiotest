@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO, time, os
+import RPi.GPIO as GPIO, time, datetime, os
 
 GPIO.setmode(GPIO.BCM)
 
@@ -16,7 +16,9 @@ try:
   while True:
     input_state = GPIO.input(BUTTON)
     if input_state == False:
-      print("Buttoned!")
+      ts = time.time()
+      st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+      print("Button pushed at {}.".format(st))
       GPIO.output(RED_LED, red)
       GPIO.output(YELLOW_LED, yellow)
       print("Red LED is now {}, yellow LED is now {}.".format(red, yellow))
